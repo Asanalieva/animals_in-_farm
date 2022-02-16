@@ -13,14 +13,7 @@ public abstract class AbstractAnimal {
         this.gender = gender;
         this.nickName = nickName;
     }
-    @Override
-    public String toString() {
-        return
-                "weight: " + weight +'\n'+
-                "age: " + age +'\n'+
-                "nickName: " + nickName + '\n' +
-                "gender: " + gender ;
-    }
+
 
 
     public float getWeight() {
@@ -53,5 +46,13 @@ public abstract class AbstractAnimal {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+    @Override
+    public String toString() {
+        return
+                "weight: " + weight +" "+
+                        "age: " + age +" " +
+                        "nickName: " + nickName + " " +
+                        "gender: " + gender ;
     }
 }

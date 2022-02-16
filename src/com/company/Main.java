@@ -5,59 +5,84 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Cow cow1 = new Cow(33.3f,2,'F',"Milky");
-        Cow cow2 = new Cow(53.2f,6,'M',"Billy");
-        Cow cow3 = new Cow(87.6f,7,'F',"Anjella");
-        Cow cow4 = new Cow(32.1f,2,'M',"Worse");
-        Cow cow5 = new Cow(99.7f,8,'M',"Quick");
-        Cow[] cows = {cow1,cow2,cow3,cow4,cow5};
+        AbstractAnimal cow1 = new Cow(33.3f,2,'F',"Milky");
+        AbstractAnimal cow2 = new Cow(53.2f,6,'M',"Billy");
+        AbstractAnimal cow3 = new Cow(87.6f,7,'F',"Anjella");
+        AbstractAnimal cow4 = new Cow(32.1f,2,'M',"Worse");
+        AbstractAnimal cow5 = new Cow(99.7f,8,'M',"Quick");
 
-        Sheep sheep1 = new Sheep(4.2f,5,'F',"Heice");
-        Sheep sheep2 = new Sheep(4.2f,3,'F',"Sammy");
-        Sheep sheep3 = new Sheep(3.3f,2,'M',"Tyne B");
-        Sheep[] sheep = {sheep1,sheep2,sheep3};
+        AbstractAnimal sheep1 = new Sheep(4.2f,5,'F',"Heice");
+        AbstractAnimal sheep2 = new Sheep(4.2f,3,'F',"Sammy");
+        AbstractAnimal sheep3 = new Sheep(3.3f,2,'M',"Tyne B");
 
-        Horse horse1 = new Horse(77.9f,5,'M',"Smort","Brown");
-        Horse horse2 = new Horse(89.7f,5,'F',"Donny","White");
-        Horse[] horses = {horse1,horse2};
+        AbstractAnimal horse1 = new Horse(77.9f,5,'M',"Smort","Brown");
+        AbstractAnimal horse2 = new Horse(89.7f,5,'F',"Donny","White");
 
         //2
 
-        Sheep sheep4 = new Sheep(44.4f,3,'M',"Iown");
-        Cow cow6 = new Cow(76.6f,5,'M',"Jack");
-        Horse horse3 = new Horse(98.7f,7,'F',"Jasmin","Black");
-        Sheep[] sheep5 = {sheep4};
-        Cow[] cows1 = {cow6};
-        Horse[] horses1 = {horse3};
+        AbstractAnimal sheep4 = new Sheep(44.4f,3,'M',"Iown");
+        AbstractAnimal cow6 = new Cow(76.6f,5,'M',"Jack");
+        AbstractAnimal horse3 = new Horse(98.7f,7,'F',"Jasmin","Black");
 
-        Farm farm = new Farm("Naryn","Dilbara",new Cow[]{cow1,cow2,cow3,cow4,cow5},new Horse[]{horse1,horse2},new Sheep[]{sheep1,sheep2,sheep3});
-        Farm farm2 = new Farm("Batken","Dinara",new Cow[]{cow6},new Horse[]{horse3},new Sheep[]{sheep4});
 
-        System.out.println(farm);
-        System.out.println("Cows:");
-        for(Cow i: cows){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
+
+        AbstractAnimal[] abstractAnimals = {cow1,cow2,cow3,cow4,cow5,sheep1,sheep2,sheep3,horse1,horse2};
+        AbstractAnimal[] abstractAnimals2 = {cow6,sheep4,horse3};
+
+        Cow[] cows = new Cow[5];
+        Sheep[] sheep = new Sheep[3];
+        Horse[] horses = new Horse[2];
+
+        Cow[] cows1 = new Cow[1];
+        Sheep[] sheeps2 = new Sheep[1];
+        Horse[] horses2 = new Horse[1];
+
+
+        int counter = 0;
+        int counter1 = 0;
+        int counter2 = 0;
+
+        for(AbstractAnimal i : abstractAnimals) {
+            if (i instanceof Cow) {
+                cows[counter] = (Cow) i;
+                counter++;
+            }
+            if(i instanceof Sheep){
+                sheep[counter1] = (Sheep) i;
+                counter1++;
+            }
+            if(i instanceof Horse){
+                horses[counter2] = (Horse) i;
+                counter2++;
+            }
         }
-        System.out.println("Sheep:");
-        for(Sheep i: sheep){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
+
+        int counter3 = 0;
+        int counter4 = 0;
+        int counter5 = 0;
+        for(AbstractAnimal j : abstractAnimals2) {
+            if (j instanceof Cow) {
+                cows1[counter3] = (Cow) j;
+                counter3++;
+            }
+            if(j instanceof Sheep){
+                sheeps2[counter4] = (Sheep) j;
+                counter4++;
+            }
+            if(j instanceof Horse){
+                horses2[counter5] = (Horse) j;
+                counter5++;
+            }
         }
-        System.out.println("Horses:");
-        for(Horse i: horses){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
-        }
-        System.out.println(" ");
-        System.out.println(farm2);
-        for(Cow i: cows1){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
-        }
-        for(Sheep i: sheep5){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
-        }
-        for(Horse i: horses1){
-            System.out.println("Weight: "+i.getWeight()+" Age: "+ i.getAge()+" Gender: "+ i.getGender()+ " Nickname: " + i.getNickName());
-        }
+
+            Farm farm = new Farm("Naryn", "Dilbara", cows, horses, sheep);
+            Farm farm2 = new Farm("Batken","Dinara",cows1,sheeps2,horses2);
+            System.out.println(farm);
+            System.out.println("--------------------------------------------------------");
+            System.out.println(farm2);
 
 
     }
-}
+
+
+ }

@@ -1,14 +1,17 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Farm {
     private String address;
     private String ownerName;
-    private Cow[] cows;
-    private Horse[] horses;
-    private Sheep[] sheep;
+    private AbstractAnimal[] cows;
+    private AbstractAnimal[] horses;
+    private AbstractAnimal[] sheep;
 
 
-    public Farm(String address, String ownerName, Cow[] cows, Horse[] horses, Sheep[] sheep) {
+    public Farm(String address, String ownerName, AbstractAnimal[] cows, AbstractAnimal[] horses, AbstractAnimal[] sheep) {
         this.address = address;
         this.ownerName = ownerName;
         this.cows = cows;
@@ -16,18 +19,12 @@ public class Farm {
         this.sheep = sheep;
     }
 
-    public Farm(){}
+    public Farm() {
+    }
+
     public String getAddress() {
         return address;
     }
-    @Override
-    public String toString() {
-        return "Farm information: " +'\n' +
-                "address: " + address + '\n' +
-                "ownerName: " + ownerName + '\n' +
-                "sheep: " + sheep.length+'\n' +
-                "horses: " + horses.length+'\n' +
-                "cows: " + cows.length+'\n';}
 
     public void setAddress(String address) {
         this.address = address;
@@ -41,29 +38,43 @@ public class Farm {
         this.ownerName = ownerName;
     }
 
-    public Cow[] getCows() {
+    public AbstractAnimal[] getCows() {
         return cows;
     }
 
-    public void setCows(Cow[] cows) {
+    public void setCows(AbstractAnimal[] cows) {
         this.cows = cows;
     }
 
-    public Horse[] getHorses() {
+    public AbstractAnimal[] getHorses() {
         return horses;
     }
 
-    public void setHorses(Horse[] horses) {
+    public void setHorses(AbstractAnimal[] horses) {
         this.horses = horses;
     }
 
-    public Sheep[] getSheep() {
+    public AbstractAnimal[] getSheep() {
         return sheep;
     }
 
-    public void setSheep(Sheep[] sheep) {
+    public void setSheep(AbstractAnimal[] sheep) {
         this.sheep = sheep;
     }
+    @Override
+    public String toString() {
+        return "Farm information: " +
+                "\naddress: " + address +
+                "\nownerName: " + ownerName + " \n" +
+                "Sheep: " + sheep.length + "\n" +
+                "Horses: " + horses.length + "\n" +
+                "Cows: " + cows.length+"\n"+
+                "Sheep: " + Arrays.toString(sheep) + "\n" +
+                "Horses: " + Arrays.toString(horses) + "\n" +
+                "Cows: " + Arrays.toString(cows);
+
+    }
+
 
 
 }

@@ -6,4 +6,6 @@ public class Sheep extends AbstractAnimal{
     }
     public Sheep(){}
 
+
+
 }

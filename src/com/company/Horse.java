@@ -9,6 +9,7 @@ public class Horse extends AbstractAnimal{
     }
     public Horse(){}
 
+
     public String getColor() {
         return color;
     }
